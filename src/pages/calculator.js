@@ -9,9 +9,29 @@ const mainStyles = {
 }
 
 export default function Calculator() {
+
+    const [state, setState] = useState({
+        focalLength: '',
+        diameter: '',
+        filmDimension: ''
+    });
+
+    function handleInputChange(e){
+        // e.target.id ---> e.target.value
+        const id = e.target.id;
+        const value = e.target.value;
+        setState({
+            ...state,
+            id : value
+        })
+    }
+
     return (
     <main style={mainStyles}>
-        <InputSection/>
+        <h1>{state.focalLength? state.focalLength : "no focal length"}</h1>
+        <h1>{state.diameter? state.diameter : "no diameter"}</h1>
+        <h1>{state.filmDimension? state.filmDimension : "no film dimension"}</h1>
+        <InputSection handleInputChange={handleInputChange}/>
         <hr/>
         <ResultsSection/>
 
