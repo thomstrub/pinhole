@@ -1,9 +1,9 @@
 import React from "react";
-export default function Input({text, target}){
+export default function Input({type, handleInputChange}){
 return(
     <>
         <div>Input</div>
-        <input type="text"></input>
+        <input type="text" id={type} onChange={handleInputChange}></input>
     </>
     
     
