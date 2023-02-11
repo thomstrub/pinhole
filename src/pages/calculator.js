@@ -1,7 +1,8 @@
-import React from "react"
+import React, { useState, useEffect } from 'react';
 import InputSection from "../components/inputSection/inputSection"
 import ResultsSection from "../components/resultsSection/resultsSection"
 import ResultsMini from "../components/resultsMini/resultsMini"
+
 
 const mainStyles = {
 
@@ -15,14 +16,21 @@ export default function Calculator() {
         diameter: '',
         filmDimension: ''
     });
+    // useEffect(() => {
+    //     setState({
+    //         ...state
+    //     })
+        
+    // }, [state])
 
     function handleInputChange(e){
         // e.target.id ---> e.target.value
+        e.preventDefault();
         const id = e.target.id;
         const value = e.target.value;
         setState({
             ...state,
-            id : value
+            [id]: value
         })
     }
 
