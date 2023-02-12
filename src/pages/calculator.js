@@ -65,7 +65,8 @@ export default function Calculator() {
             ...state,
             results: {
                 imageDiameter: (Number(state.inputs.focalLength) * 1.92),
-                fStop: (Number(state.inputs.focalLength) / Number(state.inputs.diameter))
+                fStop: state.inputs.focalLength && state.inputs.diameter ? (Number(state.inputs.focalLength) / Number(state.inputs.diameter)): '',
+                angleOfView: state.inputs.filmDimension && state.inputs.focalLength ? (2 * Math.atan(Number(state.inputs.filmDimension)/(2 * Number(state.inputs.focalLength)))) : ''
             }
         })
     },[state.inputs])
