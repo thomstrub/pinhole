@@ -1,11 +1,9 @@
 import React from "react";
-export default function Input({type, handleInputChange}){
+export default function Input({name, handleInputChange}){
 return(
     <>
-        <div>Input</div>
-        <input type="text" id={type} onChange={handleInputChange}></input>
+        <label for={name.variable}>{name.readibleName}</label>
+        <input type="number" id={name.variable} onChange={handleInputChange}></input>
     </>
-    
-    
 )
 }

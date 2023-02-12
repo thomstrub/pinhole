@@ -5,9 +5,10 @@ import constants from "../../constants/constants";
 export default function InputSection({handleInputChange}){
 return(
     <>
-        <Input type={constants.focalLength} handleInputChange={handleInputChange}/>
-        <Input type={constants.diameter} handleInputChange={handleInputChange}/>
-        <Input type={constants.filmDimension} handleInputChange={handleInputChange}/>
+        <h2>Inputs</h2>
+        <Input name={constants.inputs.focalLength} handleInputChange={handleInputChange}/>
+        <Input name={constants.inputs.diameter} handleInputChange={handleInputChange}/>
+        <Input name={constants.inputs.filmDimension} handleInputChange={handleInputChange}/>
     </>
     
 )
