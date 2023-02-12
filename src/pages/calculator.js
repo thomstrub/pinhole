@@ -12,9 +12,19 @@ const mainStyles = {
 export default function Calculator() {
 
     const [state, setState] = useState({
-        focalLength: '',
-        diameter: '',
-        filmDimension: ''
+        inputs: {
+            focalLength: '',
+            diameter: '',
+            filmDimension: ''
+        },
+        results: {
+            fStop: '',
+            angleOfView: '',
+            imageDiameter: '',
+            optimalPinholeDiameter: '',
+            optimalFocalLength: ''
+        }
+        
     });
     // useEffect(() => {
     //     setState({
@@ -30,18 +40,43 @@ export default function Calculator() {
         const value = e.target.value;
         setState({
             ...state,
-            [id]: value
+            inputs: {
+                ...state.inputs,
+                [id]: value
+            }
+        })
+        
+    }
+
+    function calculateResults(){
+        // let results = {
+
+        // }
+        setState({
+            ...state,
+            results: {
+                imageDiameter: (Number(state.inputs.focalLength) * 1.92)
+            }
         })
     }
+    useEffect(()=> {
+        // calculateResults()
+        setState({
+            ...state,
+            results: {
+                imageDiameter: (Number(state.inputs.focalLength) * 1.92)
+            }
+        })
+    },[state.inputs])
 
     return (
     <main style={mainStyles}>
-        <h1>{state.focalLength? state.focalLength : "no focal length"}</h1>
-        <h1>{state.diameter? state.diameter : "no diameter"}</h1>
-        <h1>{state.filmDimension? state.filmDimension : "no film dimension"}</h1>
+        {/* <h1>{state.inputs.focalLength? state.inputs.focalLength : "no focal length"}</h1>
+        <h1>{state.inputs.diameter? state.inputs.diameter : "no diameter"}</h1>
+        <h1>{state.inputs.filmDimension? state.inputs.filmDimension : "no film dimension"}</h1> */}
         <InputSection handleInputChange={handleInputChange}/>
         <hr/>
-        <ResultsSection/>
+        <ResultsSection results={state.results}/>
 
     </main>
     )
