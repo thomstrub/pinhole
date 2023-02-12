@@ -1,6 +1,10 @@
 import React from "react";
-export default function Result({text, target}){
+export default function Result({name, result}){
 return(
-    <div>Result</div>
+    <>
+        <h2>{name.readibleName}</h2>
+        <input id={name.variableName} value={result}></input>
+    </>
+    
 )
 }
