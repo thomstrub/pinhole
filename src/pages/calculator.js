@@ -48,23 +48,24 @@ export default function Calculator() {
         
     }
 
-    function calculateResults(){
-        // let results = {
+    // function calculateResults(){
+    //     // let results = {
 
-        // }
-        setState({
-            ...state,
-            results: {
-                imageDiameter: (Number(state.inputs.focalLength) * 1.92)
-            }
-        })
-    }
+    //     // }
+    //     setState({
+    //         ...state,
+    //         results: {
+    //             imageDiameter: (Number(state.inputs.focalLength) * 1.92)
+    //         }
+    //     })
+    // }
     useEffect(()=> {
         // calculateResults()
         setState({
             ...state,
             results: {
-                imageDiameter: (Number(state.inputs.focalLength) * 1.92)
+                imageDiameter: (Number(state.inputs.focalLength) * 1.92),
+                fStop: (Number(state.inputs.focalLength) / Number(state.inputs.diameter))
             }
         })
     },[state.inputs])

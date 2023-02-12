@@ -1,6 +1,9 @@
 import React from "react";
-export default function ResultsMini({text, target}){
+export default function ResultsMini({name, result}){
 return(
-    <div>Mini Results</div>
+    <>
+        <h2>{name.readibleName}</h2>
+        <input id={name.variableName} value={result}></input>
+    </>
 )
 }
