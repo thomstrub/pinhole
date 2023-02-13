@@ -4,28 +4,21 @@ import ResultsMini from "../resultsMini/resultsMini";
 import constants from "../../constants/constants";
 
 
-export default function ResultsSection({unit, results}){
-
-
-    function defineResults(unit, results, type){
-        let otherUnit = constants.units.inches.variable
-        if(unit === constants.units.inches.variable){
-            otherUnit = constants.units.millimeters.variable
-        }
-        if (results[type]){
-            return unit[unit] ? results[type][unit] : results[type][otherUnit]
-        } else {
-            return ''
-        }
-    }
+export default function ResultsSection({results}){
+    console.log(results[constants.results.fstop.variable], "<------ fstop")
+    const fStop = results[constants.results.fstop.variable]
+    const angleOfView = results[constants.results.angleOfView.variable]
+    const imageDiameter = results[constants.results.imageDiameter.variable]
+    const optimalPinholeDiameter = results[constants.results.optimalPinholeDiameter.variable]
+    const optimalFocalLength = results[constants.results.optimalFocalLength.variable]
 return(
     <>
         <h2>Results</h2>
-        <ResultsMini name={constants.results.fstop} result={defineResults(unit, results, constants.results.fstop.variable)}/>
-        <ResultsMini name={constants.results.angleOfView} result={defineResults(unit, results, constants.results.angleOfView.variable)}/>
-        <Result name={constants.results.imageDiameter} result={defineResults(unit, results, constants.results.imageDiameter.variable)}/>
-        <Result name={constants.results.optimalPinholeDiameter} result={defineResults(unit, results, constants.results.optimalPinholeDiameter.variable)}/>
-        <Result name={constants.results.optimalFocalLength} result={defineResults(unit, results, constants.results.optimalFocalLength.variable)}/>
+        <ResultsMini name={constants.results.fstop} result={fStop ? fStop : ''}/>
+        <ResultsMini name={constants.results.angleOfView} result={angleOfView ? angleOfView : ''}/>
+        <Result name={constants.results.imageDiameter} result={imageDiameter ? imageDiameter : ''}/>
+        <Result name={constants.results.optimalPinholeDiameter} result={optimalPinholeDiameter ? optimalPinholeDiameter : ''}/>
+        <Result name={constants.results.optimalFocalLength} result={optimalFocalLength ? optimalFocalLength : ''}/>
     </>
 )
 }

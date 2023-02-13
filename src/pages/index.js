@@ -4,7 +4,7 @@ import Calculator from "./calculator";
 const pageStyles = {
   color: "#232129",
   padding: 96,
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
+  fontFamily: "-apple-system, Roboto, sans-serif, serif"
 }
 
 const linkStyle = {
@@ -57,4 +57,4 @@ function handleTabletChange(e) {
 
 export default IndexPage
 
-export const Head = () => <title>Home Page</title>
+export const Head = () => <title>PSPS</title>
