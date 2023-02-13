@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import InputSection from "../components/inputSection/inputSection"
 import ResultsSection from "../components/resultsSection/resultsSection"
-import ResultsMini from "../components/resultsMini/resultsMini"
-
+import constants from '../constants/constants';
 
 const mainStyles = {
 
@@ -13,17 +12,42 @@ export default function Calculator() {
 
     const [state, setState] = useState({
         inputs: {
-            focalLength: '',
-            diameter: '',
-            filmDimension: ''
+            focalLength: {
+                inches: '',
+                millimeters: ''
+            },
+            diameter: {
+                inches: '',
+                millimeters: ''
+            },
+            filmDimension: {
+                inches: '',
+                millimeters: ''
+            },
         },
         results: {
-            fStop: '',
-            angleOfView: '',
-            imageDiameter: '',
-            optimalPinholeDiameter: '',
-            optimalFocalLength: ''
-        }
+            fStop: {
+                inches: '',
+                millimeters: ''
+            },
+            angleOfView: {
+                inches: '',
+                millimeters: ''
+            },
+            imageDiameter: {
+                inches: '',
+                millimeters: ''
+            },
+            optimalPinholeDiameter: {
+                inches: '',
+                millimeters: ''
+            },
+            optimalFocalLength: {
+                inches: '',
+                millimeters: ''
+            }
+        },
+        unit: constants.units.millimeters.variable
         
     });
     // useEffect(() => {
@@ -38,13 +62,32 @@ export default function Calculator() {
         e.preventDefault();
         const id = e.target.id;
         const value = e.target.value;
-        setState({
-            ...state,
-            inputs: {
-                ...state.inputs,
-                [id]: value
-            }
-        })
+        if(state.unit === constants.units.millimeters.variable){
+            setState({
+                ...state,
+                inputs: {
+                    ...state.inputs,
+                    [id]: {
+                        [constants.units.millimeters.variable] : value,
+                        [constants.units.inches.variable] : value * constants.units.inches.multiplierFromMillimeters
+                    }
+                }
+            })
+        } else if (state.unit === constants.units.inches.variable){
+            setState({
+                ...state,
+                inputs: {
+                    ...state.inputs,
+                    [id]: {
+                        [constants.units.millimeters.variable] : value * constants.units.millimeters.multiplierFromInches,
+                        [constants.units.inches.variable] : value 
+                    }
+                }
+            })
+        } else {
+            throw new Error("Unit Error.")
+        }
+        
         
     }
 
@@ -63,13 +106,37 @@ export default function Calculator() {
         // calculateResults()
         setState({
             ...state,
-            results: {
-                imageDiameter: (Number(state.inputs.focalLength) * 1.92),
-                fStop: state.inputs.focalLength && state.inputs.diameter ? (Number(state.inputs.focalLength) / Number(state.inputs.diameter)): '',
-                angleOfView: state.inputs.filmDimension && state.inputs.focalLength ? (2 * Math.atan(Number(state.inputs.filmDimension)/(2 * Number(state.inputs.focalLength)))) : ''
-            }
+            results: calculateResults(state)
         })
     },[state.inputs])
+
+    function calculateResults(state){
+        if(!state.unit){
+            throw new Error('Error: No Unit')
+        }
+
+        let otherUnit = constants.units.inches.variable;
+        
+        if(state.unit === constants.units.inches.variable){
+            otherUnit = constants.units.millimeters.variable
+        }
+
+        return {
+            [constants.results.imageDiameter.variable]: {
+                [state.unit]: state.inputs.focalLength[state.unit] ? (Number(state.inputs.focalLength[state.unit]) * 1.92) : '',
+                [otherUnit]: state.inputs.focalLength[otherUnit] ? (Number(state.inputs.focalLength[otherUnit]) * 1.92) : ''
+            },
+            [constants.results.fstop.variable]: {
+                [state.unit]: state.inputs.focalLength[state.unit] && state.inputs.diameter[state.unit] ? (Number(state.inputs.focalLength[state.unit]) / Number(state.inputs.diameter[state.unit])) : '',
+                [otherUnit]: state.inputs.focalLength[otherUnit] && state.inputs.diameter[otherUnit] ? (Number(state.inputs.focalLength[otherUnit]) / Number(state.inputs.diameter[otherUnit])) : ''
+            },
+            [constants.results.angleOfView.variable]:{
+                [state.unit]: state.inputs.filmDimension[state.unit] && state.inputs.focalLength[state.unit] ? (2 * Math.atan(Number(state.inputs.filmDimension[state.unit])/(2 * Number(state.inputs.focalLength[state.unit])))) : '',
+                [otherUnit]: state.inputs.filmDimension[otherUnit] && state.inputs.focalLength[otherUnit] ? (2 * Math.atan(Number(state.inputs.filmDimension[otherUnit])/(2 * Number(state.inputs.focalLength[otherUnit])))) : ''
+            }
+           
+        }
+    }
 
     return (
     <main style={mainStyles}>
@@ -78,7 +145,7 @@ export default function Calculator() {
         <h1>{state.inputs.filmDimension? state.inputs.filmDimension : "no film dimension"}</h1> */}
         <InputSection handleInputChange={handleInputChange}/>
         <hr/>
-        <ResultsSection results={state.results}/>
+        <ResultsSection unit={state.unit} results={state.results}/>
 
     </main>
     )
