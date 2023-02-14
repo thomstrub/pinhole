@@ -3,6 +3,7 @@ import InputSection from "../components/inputSection/inputSection"
 import ResultsSection from "../components/resultsSection/resultsSection"
 import constants from '../constants/constants';
 import calculateResults from '../helper/calculate';
+import ToggleContainer from '../components/toggles/toggleContainer';
 
 const mainStyles = {
 
@@ -107,7 +108,7 @@ export default function Calculator() {
         <br/>
         <hr/>
         <ResultsSection results={state.results}/>
-
+        <ToggleContainer />
     </main>
     )
 }   

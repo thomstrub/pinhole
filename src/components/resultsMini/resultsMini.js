@@ -1,4 +1,6 @@
 import React from "react";
+import ToggleContainer from "../toggles/toggleContainer";
+
 export default function ResultsMini({name, result}){
     const resultStyles = {
         color: "gray",
@@ -15,10 +17,22 @@ export default function ResultsMini({name, result}){
         display: "flex",
         alignItems: "flex-start"
     }
+
+    const rowStyle = {
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "flex-end",
+        justifyContent: "space-between"
+    }
     return(
-        <>
-            <label htmlFor={name.variable}>{name.readibleName}</label>
-            <input style={resultStyles} id={name.variableName} value={result ? result : ''} readOnly={true}></input>
+        <><div style={rowStyle}>
+                <div>
+                    <label htmlFor={name.variable}>{name.readibleName}</label>
+                    <input style={resultStyles} id={name.variableName} value={result ? result : ''} readOnly={true}></input>
+                </div>
+                <ToggleContainer/>
+        </div>
+            
         </>
     )
 }
