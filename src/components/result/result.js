@@ -1,13 +1,26 @@
 import React from "react";
 export default function Result({name, result}){
     const resultInUnit = result[result.unit]
-    console.log(resultInUnit, "result In Unit")
-    console.log(result, "<---result")
-return(
-    <>
-        <h3>{name.readibleName}</h3>
-        <input id={name.variableName} value={resultInUnit ? resultInUnit : ''} readOnly={true}></input>
-    </>
-    
-)
+    const resultStyles = {
+        color: "gray",
+        fontFamily: "Karla",
+        fontSize: "32px",
+        border: "1px solid gray",
+        borderRadius: "6px",
+        height: "4rem",
+        width: "12rem",
+        boxSizing: "border-box",
+        paddingLeft: "12px",
+        paddingTop: "14px",
+        paddingBottom:"14px",
+        display: "flex",
+        alignItems: "flex-start"
+    }
+    return(
+        <>
+            <h3>{name.readibleName}</h3>
+            <input style={resultStyles} id={name.variableName} value={resultInUnit ? resultInUnit : ''} readOnly={true}></input>
+        </>
+        
+    )
 }
