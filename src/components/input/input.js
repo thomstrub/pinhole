@@ -15,11 +15,11 @@ const inputStyles = {
     paddingBottom:"14px",
     display: "flex",
     alignItems: "flex-start"
-    }
+}
 
 return(
     < >
-        <label for={name.variable}>{name.readibleName}</label>
+        <label htmlFor={name.variable}>{name.readibleName}</label>
         <input style={inputStyles} type="number" id={name.variable} onChange={handleInputChange}>{value}</input>
     </>
 )

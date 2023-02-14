@@ -60,6 +60,8 @@ export default function Calculator() {
         const id = e.target.id;
         const value = e.target.value;
 
+        console.log(state.inputs[id].unit, " <---- unit")
+
         if(state.inputs[id].unit === constants.units.millimeters.variable){
             setState({
                 ...state,
@@ -67,7 +69,8 @@ export default function Calculator() {
                     ...state.inputs,
                     [id]: {
                         [constants.units.millimeters.variable] : value,
-                        [constants.units.inches.variable] : value * constants.units.inches.multiplierFromMillimeters
+                        [constants.units.inches.variable] : value * constants.units.inches.multiplierFromMillimeters,
+                        unit : state.inputs[id].unit
                     }
                 }
             })
@@ -78,7 +81,8 @@ export default function Calculator() {
                     ...state.inputs,
                     [id]: {
                         [constants.units.millimeters.variable] : value * constants.units.millimeters.multiplierFromInches,
-                        [constants.units.inches.variable] : value 
+                        [constants.units.inches.variable] : value,
+                        unit : state.inputs[id].unit 
                     }
                 }
             })
