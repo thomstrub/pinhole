@@ -18,7 +18,7 @@ export default function calculateResults(state){
 
     // calculate angle of view
     function calculateAngleOfViewFromMm(filmDimension, focalLength){
-        return (2 * Math.atan(Number(filmDimension[millimeters])/(2 * Number(focalLength[millimeters]))))
+        return (2 * Math.atan(Number(filmDimension[millimeters])/(2 * Number(focalLength[millimeters]))).toFixed(2))
     }
     //
 

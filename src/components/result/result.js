@@ -18,7 +18,7 @@ export default function Result({name, result}){
     }
     return(
         <>
-            <h3>{name.readibleName}</h3>
+            <label htmlFor={name.variable}>{name.readibleName}</label>
             <input style={resultStyles} id={name.variableName} value={resultInUnit ? resultInUnit : ''} readOnly={true}></input>
         </>
         

@@ -17,7 +17,7 @@ export default function ResultsMini({name, result}){
     }
     return(
         <>
-            <h2>{name.readibleName}</h2>
+            <label htmlFor={name.variable}>{name.readibleName}</label>
             <input style={resultStyles} id={name.variableName} value={result ? result : ''} readOnly={true}></input>
         </>
     )
