@@ -1,17 +1,11 @@
 import React, {useState, useEffect} from "react";
 import Calculator from "./calculator";
+// import "../components/styles/styles.css";
 
 const pageStyles = {
-  color: "#232129",
-  padding: 96,
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-
-const linkStyle = {
-  color: "#8954A8",
-  fontWeight: "bold",
-  fontSize: 16,
-  verticalAlign: "5%",
+  color: "black",
+  padding: 10,
+  fontFamily: "Karla"
 }
 
 
@@ -50,11 +44,10 @@ function handleTabletChange(e) {
   return (
     <main style={pageStyles}>
       {isDesktop ? <h1>Calculator</h1>: <Calculator/>}
-      <input type="text"></input>
     </main>
   )
 }
 
 export default IndexPage
 
-export const Head = () => <title>Home Page</title>
+export const Head = () => <title>PSPS</title>

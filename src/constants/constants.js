@@ -34,6 +34,18 @@ let constants = {
             variable: "optimalFocalLength",
             readibleName: "Optimal Focal Length"
         }
+    },
+    units: {
+        millimeters: {
+            variable: "millimeters",
+            readibleName: "mm",
+            multiplierFromInches: 25.5
+        },
+        inches: {
+            variable: "inches",
+            readibleName: "in",
+            multiplierFromMillimeters: .0393701
+        }
     }
     
 }
