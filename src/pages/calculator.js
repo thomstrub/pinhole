@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { Container } from 'react-bootstrap';
+
 import InputSection from "../components/inputSection/inputSection"
 import ResultsSection from "../components/resultsSection/resultsSection"
 import constants from '../constants/constants';
 import calculateResults from '../helper/calculate';
+import ToggleContainer from '../components/toggles/toggleContainer';
+import ResultsMiniSection from '../components/resultMiniSection/resultsMiniSection';
 
-const mainStyles = {
-
-
-}
 
 export default function Calculator() {
 
@@ -99,15 +99,18 @@ export default function Calculator() {
             results: calculateResults(state)
         })
     },[state.inputs])
-
+    console.log(state.results.fStop, "<-- fstop from calc page")
     return (
-    <main style={mainStyles}>
-        <InputSection handleInputChange={handleInputChange}/>
-        <br/>
-        <br/>
-        <hr/>
-        <ResultsSection results={state.results}/>
-
+    <main>
+        <Container fluid>
+            <InputSection handleInputChange={handleInputChange}/>
+            <br/>
+            <br/>
+            <hr/>
+            <h3>Results</h3>
+            <ResultsMiniSection fStop={state.results.fStop} angleOfView={state.results.angleOfView}/>
+            <ResultsSection results={state.results}/>
+        </Container>
     </main>
     )
 }   

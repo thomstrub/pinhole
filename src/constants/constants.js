@@ -15,7 +15,7 @@ let constants = {
     },
     results: {
         fstop: {
-            variable: "fstop",
+            variable: "fStop",
             readibleName: "F-Stop"
         },
         angleOfView: {
