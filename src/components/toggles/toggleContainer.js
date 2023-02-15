@@ -5,8 +5,7 @@ export default function ToggleContainer({name, result}){
     
     const toggleContainerStyles = {
      display: "flex",
-     flexDirection: "row",
-     padding: "0px"
+     flexDirection: "row"
     }
     return(
         <>

@@ -4,7 +4,6 @@ import Calculator from "./calculator";
 
 const pageStyles = {
   color: "black",
-  padding: 10,
   fontFamily: "Karla"
 }
 
