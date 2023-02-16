@@ -7,14 +7,12 @@ export default function Result({name, result}){
         color: "gray",
         fontFamily: "Karla",
         fontSize: "32px",
-        border: "1px solid gray",
+        border: "1px solid #cccccc",
         borderRadius: "6px",
         height: "60px",
         width: "195px",
         boxSizing: "border-box",
-        paddingLeft: "12px",
-        paddingTop: "14px",
-        paddingBottom:"14px",
+        marginBottom:"24px",
         display: "flex",
         alignItems: "flex-start"
 
@@ -32,7 +30,7 @@ export default function Result({name, result}){
             </Col>
             <Col></Col>
             <Col xs={5}>
-            <ToggleContainer />
+            <ToggleContainer unit={result.unit}/>
             </Col>
         </Row>
             </Col>

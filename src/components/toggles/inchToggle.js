@@ -1,13 +1,12 @@
 import React from "react";
-export default function InchToggle({name, result}){
+export default function InchToggle({colorStyles}){
     
     const inchToggleStyles = {
-        background: "#248CFF",
-        borderRadius: "4px 0px 0px 4px",
+        ...colorStyles,
+        borderRadius: "6px 0px 0px 6px",
         height: "60px",
         width: "60px",
         padding: "20px",
-        color: "white",
         fontSize: "16px",
         fontWeight: "500",
         lineHeight: "20px",

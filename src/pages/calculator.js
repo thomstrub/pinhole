@@ -103,9 +103,7 @@ export default function Calculator() {
     return (
     <main>
         <Container fluid>
-            <InputSection handleInputChange={handleInputChange}/>
-            <br/>
-            <br/>
+            <InputSection handleInputChange={handleInputChange} inputs={state.inputs}/>
             <hr/>
             <h3>Results</h3>
             <ResultsMiniSection fStop={state.results.fStop} angleOfView={state.results.angleOfView}/>

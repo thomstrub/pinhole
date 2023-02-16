@@ -8,14 +8,12 @@ const inputStyles = {
     color: "gray",
     fontFamily: "Karla",
     fontSize: "32px",
-    border: "1px solid gray",
+    border: "1px solid #cccccc",
     borderRadius: "6px",
     height: "60px",
     width: "12rem",
     boxSizing: "border-box",
-    paddingLeft: "12px",
-    paddingTop: "14px",
-    paddingBottom:"14px",
+    marginBottom:"24px",
     display: "flex",
     alignItems: "flex-start"
 }
@@ -29,11 +27,11 @@ return(
         </Row>
         <Row style={{marginTop: "4px"}}>
             <Col xs={5}>
-            <input style={inputStyles} type="number" id={name.variable} onChange={handleInputChange}>{value}</input>
+            <input style={inputStyles} type="number" id={name.variable} onChange={handleInputChange} value={value[value.unit]}></input>
             </Col>
             <Col></Col>
             <Col xs={5}>
-            <ToggleContainer />
+            <ToggleContainer unit={value.unit}/>
             </Col>
         </Row>
     </Col>

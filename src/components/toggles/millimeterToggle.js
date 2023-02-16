@@ -1,13 +1,12 @@
 import React from "react";
-export default function MillimeterToggle({name, result}){
+export default function MillimeterToggle({colorStyles}){
     
     const millimeterToggleStyles = {
-        background: "#F2F3F5",
-        borderRadius: "0px 4px 4px 0px",
+        ...colorStyles,
+        borderRadius: "0px 6px 6px 0px",
         height: "60px",
         width: "60px",
         padding: "20px",
-        color: "#BCBCBC",
         fontSize: "16px",
         fontWeight: "500",
         display: "flex",
