@@ -2,7 +2,8 @@ import React from "react";
 import { Row, Col } from "react-bootstrap";
 import ToggleContainer from "../toggles/toggleContainer";
 
-export default function Input({name, handleInputChange, value}){
+export default function Input({name, handleInputChange, value, handleUnitToggle}){
+    console.log(handleUnitToggle, "handleUnitToggle from Input")
 
 const inputStyles = {
     color: "gray",
@@ -31,7 +32,7 @@ return(
             </Col>
             <Col></Col>
             <Col xs={5}>
-            <ToggleContainer unit={value.unit}/>
+            <ToggleContainer unit={value.unit} handleUnitToggle={handleUnitToggle} type={"inputs"} label={name.variable}/>
             </Col>
         </Row>
     </Col>

@@ -2,7 +2,7 @@ import React from "react";
 import InchToggle from "./inchToggle";
 import MillimeterToggle from "./millimeterToggle";
 import constants from "../../constants/constants";
-export default function ToggleContainer({unit}){
+export default function ToggleContainer({unit, handleUnitToggle, type, label}){
     
     const toggleContainerStyles = {
      display: "flex",
@@ -26,10 +26,11 @@ export default function ToggleContainer({unit}){
             return notSelectedColorStyles
         }
     }
-
+    console.log(handleUnitToggle, "<-----handleUnitToggle")
+    console.log(typeof(handleUnitToggle))
     return(
         <>
-            <div unit={'millimeters'} style={toggleContainerStyles}>
+            <div onClick={() => handleUnitToggle(type, label)} style={toggleContainerStyles}>
                 <InchToggle colorStyles={assignColorStyles(unit, constants.units.inches.variable)}/>
                 <MillimeterToggle colorStyles={assignColorStyles(unit, constants.units.millimeters.variable)}/>       
             </div>

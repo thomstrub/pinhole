@@ -10,7 +10,8 @@ import ResultsMiniSection from '../components/resultMiniSection/resultsMiniSecti
 
 
 export default function Calculator() {
-
+const millimeters = constants.units.millimeters.variable;
+const inches = constants.units.inches.variable;
     // state setup 
 
     const [state, setState] = useState({
@@ -18,7 +19,7 @@ export default function Calculator() {
             focalLength: {
                 inches: '',
                 millimeters: '',
-                unit: constants.units.millimeters.variable
+                unit: constants.units.inches.variable
             },
             diameter: {
                 inches: '',
@@ -53,7 +54,7 @@ export default function Calculator() {
         
     });
 
-    // handler
+    // handlers
 
     function handleInputChange(e){
         e.preventDefault();
@@ -89,8 +90,29 @@ export default function Calculator() {
         } else {
             throw new Error("Unit Error.")
         }
-        
-        
+    }
+
+    function handleUnitToggle(type, label){
+        console.log(type, "<----type");
+        console.log(label, "<----label");
+        console.log(state[type][label], "handle Unit<------")
+        if(type && label){
+            if(state[type][label]){
+            const newUnit = state[type][label].unit === millimeters ? inches : millimeters;
+            console.log(newUnit, "<----------newUnit")
+                setState({
+                    ...state,
+                    [type]:{
+                        ...state[type],
+                        [label]: {
+                            ...state[type][label],
+                            unit:   newUnit
+                        }
+                    }
+                })
+            }
+        }
+           
     }
 
     useEffect(()=> {
@@ -98,16 +120,16 @@ export default function Calculator() {
             ...state,
             results: calculateResults(state)
         })
-    },[state.inputs])
+    },[state.inputs.diameter.inches, state.inputs.diameter.millimeters, state.inputs.filmDimension.inches, state.inputs.filmDimension.millimeters, state.inputs.focalLength.inches, state.inputs.focalLength.millimeters])
     console.log(state.results.fStop, "<-- fstop from calc page")
     return (
     <main>
         <Container fluid>
-            <InputSection handleInputChange={handleInputChange} inputs={state.inputs}/>
+            <InputSection handleInputChange={handleInputChange} inputs={state.inputs} handleUnitToggle={handleUnitToggle}/>
             <hr/>
             <h3>Results</h3>
             <ResultsMiniSection fStop={state.results.fStop} angleOfView={state.results.angleOfView}/>
-            <ResultsSection results={state.results}/>
+            <ResultsSection results={state.results} handleUnitToggle={handleUnitToggle}/>
         </Container>
     </main>
     )
