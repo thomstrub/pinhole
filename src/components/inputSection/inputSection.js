@@ -3,7 +3,6 @@ import Input from "../input/input";
 import constants from "../../constants/constants";
 
 export default function InputSection({handleInputChange, inputs, handleUnitToggle}){
-   console.log(handleUnitToggle, "handleUnitToggle from InputSection")
 return(
     <>
         <Input name={constants.inputs.focalLength} handleInputChange={handleInputChange} value={inputs.focalLength} handleUnitToggle={handleUnitToggle}/>
