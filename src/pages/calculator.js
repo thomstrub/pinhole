@@ -19,7 +19,7 @@ const inches = constants.units.inches.variable;
             focalLength: {
                 inches: '',
                 millimeters: '',
-                unit: constants.units.inches.variable
+                unit: constants.units.millimeters.variable
             },
             diameter: {
                 inches: '',
