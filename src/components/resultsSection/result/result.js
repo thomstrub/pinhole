@@ -1,20 +1,18 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
 import ToggleContainer from "../../toggles/toggleContainer";
-export default function Result({name, result}){
+export default function Result({name, result, handleUnitToggle}){
     const resultInUnit = result[result.unit]
     const resultStyles = {
         color: "gray",
         fontFamily: "Karla",
         fontSize: "32px",
-        border: "1px solid gray",
+        border: "1px solid #cccccc",
         borderRadius: "6px",
         height: "60px",
         width: "195px",
         boxSizing: "border-box",
-        paddingLeft: "12px",
-        paddingTop: "14px",
-        paddingBottom:"14px",
+        marginBottom:"24px",
         display: "flex",
         alignItems: "flex-start"
 
@@ -28,11 +26,11 @@ export default function Result({name, result}){
         </Row>
         <Row>
             <Col xs={5}>
-            <input style={resultStyles} id={name.variableName} value={resultInUnit ? resultInUnit : ''} readOnly={true}></input>
+            <input style={resultStyles} id={name.variable} value={resultInUnit ? resultInUnit : ''} readOnly={true}></input>
             </Col>
             <Col></Col>
             <Col xs={5}>
-            <ToggleContainer />
+            <ToggleContainer unit={result.unit} handleUnitToggle={handleUnitToggle} type={"results"} label={name.variable}/>
             </Col>
         </Row>
             </Col>

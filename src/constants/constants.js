@@ -39,7 +39,7 @@ let constants = {
         millimeters: {
             variable: "millimeters",
             readibleName: "mm",
-            multiplierFromInches: 25.5
+            multiplierFromInches: 25.4
         },
         inches: {
             variable: "inches",
