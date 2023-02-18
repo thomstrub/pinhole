@@ -18,16 +18,12 @@ export default function ToggleContainer({unit, handleUnitToggle, type, label}){
     }
 
     function assignColorStyles(unit, type){
-        console.log(unit, "<----unit")
-        console.log(type, "<----type")
         if(unit === type){
             return selectedColorStyles
         } else {
             return notSelectedColorStyles
         }
     }
-    console.log(handleUnitToggle, "<-----handleUnitToggle")
-    console.log(typeof(handleUnitToggle))
     return(
         <>
             <div onClick={() => handleUnitToggle(type, label)} style={toggleContainerStyles}>

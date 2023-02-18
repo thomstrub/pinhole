@@ -3,7 +3,6 @@ import { Row, Col } from "react-bootstrap";
 import ToggleContainer from "../toggles/toggleContainer";
 
 export default function Input({name, handleInputChange, value, handleUnitToggle}){
-    console.log(handleUnitToggle, "handleUnitToggle from Input")
 
 const inputStyles = {
     color: "gray",

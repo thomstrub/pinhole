@@ -61,8 +61,6 @@ const inches = constants.units.inches.variable;
         const id = e.target.id;
         const value = e.target.value;
 
-        console.log(state.inputs[id].unit, " <---- unit")
-
         if(state.inputs[id].unit === constants.units.millimeters.variable){
             setState({
                 ...state,
@@ -93,13 +91,9 @@ const inches = constants.units.inches.variable;
     }
 
     function handleUnitToggle(type, label){
-        console.log(type, "<----type");
-        console.log(label, "<----label");
-        console.log(state[type][label], "handle Unit<------")
         if(type && label){
             if(state[type][label]){
             const newUnit = state[type][label].unit === millimeters ? inches : millimeters;
-            console.log(newUnit, "<----------newUnit")
                 setState({
                     ...state,
                     [type]:{
@@ -121,7 +115,7 @@ const inches = constants.units.inches.variable;
             results: calculateResults(state)
         })
     },[state.inputs.diameter.inches, state.inputs.diameter.millimeters, state.inputs.filmDimension.inches, state.inputs.filmDimension.millimeters, state.inputs.focalLength.inches, state.inputs.focalLength.millimeters])
-    console.log(state.results.fStop, "<-- fstop from calc page")
+    
     return (
     <main>
         <Container fluid>

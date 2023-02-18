@@ -4,7 +4,6 @@ import constants from "../../constants/constants";
 
 
 export default function ResultsSection({results, handleUnitToggle}){
-    console.log(results[constants.results.fstop.variable], "<------ fstop")
     const imageDiameter = results[constants.results.imageDiameter.variable]
     const optimalPinholeDiameter = results[constants.results.optimalPinholeDiameter.variable]
     const optimalFocalLength = results[constants.results.optimalFocalLength.variable]

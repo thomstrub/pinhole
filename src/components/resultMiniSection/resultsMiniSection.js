@@ -9,7 +9,6 @@ export default function ResultsMiniSection({fStop, angleOfView}){
     const resultStyles = {
 
     }
-    console.log(fStop, "fstop from results mini section <----")
 
     return(
        
