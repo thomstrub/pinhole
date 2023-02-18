@@ -70,7 +70,7 @@ const inches = constants.units.inches.variable;
                     ...state.inputs,
                     [id]: {
                         [constants.units.millimeters.variable] : value,
-                        [constants.units.inches.variable] : value * constants.units.inches.multiplierFromMillimeters,
+                        [constants.units.inches.variable] : (value * constants.units.inches.multiplierFromMillimeters).toFixed(2),
                         unit : state.inputs[id].unit
                     }
                 }
@@ -81,7 +81,7 @@ const inches = constants.units.inches.variable;
                 inputs: {
                     ...state.inputs,
                     [id]: {
-                        [constants.units.millimeters.variable] : value * constants.units.millimeters.multiplierFromInches,
+                        [constants.units.millimeters.variable] : (value * constants.units.millimeters.multiplierFromInches).toFixed(2),
                         [constants.units.inches.variable] : value,
                         unit : state.inputs[id].unit 
                     }
