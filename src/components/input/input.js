@@ -15,7 +15,7 @@ return(
         <Row style={{marginTop: "4px"}}>
         <div style={{display: "flex", width:"100%", margin: "0 auto",justifyContent: "space-between"}}> 
             <Col xs={5}>
-                <input style={inputsStyles} type="text" pattern="/d*" inputMode="numeric" id={name.variable} onChange={handleInputChange} value={value[value.unit]}></input>
+                <input style={inputsStyles} type="number" pattern="/d*" inputMode="decimal" id={name.variable} onChange={handleInputChange} value={value[value.unit]}></input>
             </Col>
             
             <Col xs={5}>
