@@ -6,7 +6,7 @@ let constants = {
         },
         diameter: {
             variable: 'diameter',
-            readibleName: "Diameter"
+            readibleName: "Input Diameter"
         },
         filmDimension: {
             variable: 'filmDimension',

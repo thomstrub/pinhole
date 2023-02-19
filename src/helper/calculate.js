@@ -8,32 +8,37 @@ export default function calculateResults(state){
 
     // calculate fstop
     function calculateFStopFromMm(diameter, focalLength){
-        return "F-" + (Number(focalLength[millimeters])/ Number(diameter[millimeters]))
+        const fStop = Number(focalLength[millimeters])/ Number(diameter[millimeters])
+        const formattedFStop = fStop % 1 ? fStop.toFixed(1) : fStop;
+        return fStop ? "F-" + formattedFStop : ''
     }
 
     // calculate angle of view
     function calculateAngleOfViewFromMm(filmDimension, focalLength){
-        return (2 * Math.atan(Number(filmDimension[millimeters])/(2 * Number(focalLength[millimeters])))).toFixed(2) + "°"
+        const filmDimensionByFocalLength = Number(filmDimension[millimeters])/2 * Number(focalLength[millimeters])
+        const angleOfViewInRadians = 2 * Math.atan(filmDimensionByFocalLength)
+        const angleOfViewInDegrees = angleOfViewInRadians * 180 / Math.PI
+        return angleOfViewInDegrees ? angleOfViewInDegrees.toFixed(2) + "°" : ''
     }
 
     //calculate image diameter in mm
     function calculateImageDiameterFromMm(focalLength){
         const imageDiameter = Number(focalLength[millimeters]) * 1.92
-        return imageDiameter.toFixed(2)
+        return imageDiameter ? imageDiameter.toFixed(2) : ''
     }
 
 // to do: grab formulas for these:
 
     //calculate optimal pinhole diameter in mm
     function calculateOptimalPinholeDiameterFromMm(focalLength){
-        const calculateOptimalPinholeDiameterFromMm = Math.sqrt(Number(focalLength[millimeters]) * .00007)
-        return calculateOptimalPinholeDiameterFromMm.toFixed(2)
+        const optimalPinholeDiameterFromMm = Math.sqrt(Number(focalLength[millimeters]) * .00007)
+        return optimalPinholeDiameterFromMm ? optimalPinholeDiameterFromMm.toFixed(2) : ''
     }
 
     //calculate optimal focal length in mm
     function calculateOptimalFocalLengthFromMm(diameter){
-        const calculateOptimalFocalLengthFromMm = Math.pow((Number(diameter[millimeters])/ .03679), 2);
-        return calculateOptimalFocalLengthFromMm.toFixed(2)
+        const optimalFocalLengthFromMm = Math.pow((Number(diameter[millimeters])/ .03679), 2);
+        return optimalFocalLengthFromMm ? optimalFocalLengthFromMm.toFixed(2) : ''
     }
 
     return {
