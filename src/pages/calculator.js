@@ -59,7 +59,7 @@ const inches = constants.units.inches.variable;
     function handleInputChange(e){
         e.preventDefault();
         const id = e.target.id;
-        const value = e.target.value;
+        const value = e.target.value < 0 ? '' : e.target.value;
 
         if(state.inputs[id].unit === constants.units.millimeters.variable){
             setState({
