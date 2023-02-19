@@ -6,7 +6,8 @@ export default function ToggleContainer({unit, handleUnitToggle, type, label}){
     
     const toggleContainerStyles = {
      display: "flex",
-     flexDirection: "row"
+     flexDirection: "row",
+     justifyContent: "flex-end"
     }
     const notSelectedColorStyles = {
         background: "#F2F3F5",

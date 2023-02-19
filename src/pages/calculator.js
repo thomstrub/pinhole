@@ -117,17 +117,19 @@ const inches = constants.units.inches.variable;
     },[state.inputs.diameter.inches, state.inputs.diameter.millimeters, state.inputs.filmDimension.inches, state.inputs.filmDimension.millimeters, state.inputs.focalLength.inches, state.inputs.focalLength.millimeters])
     
     return (
-    <main>
-        <Container fluid>
-            <div style={{marginTop: "40px", display: "flex", alignSelf: "center", justifyContent: "center"}}>
-                <h1 style={{fontWeight: "800", fontSize: "36px", lineHeight: "42px"}}>Pinhole Calculator</h1>
+    <main >
+            <div style={{display: "flex", width:"100%", maxWidth: "95%", margin: "0 auto",justifyContent: "center"}}>
+                <Container>
+                    <div style={{marginTop: "40px", display: "flex", alignSelf: "center", justifyContent: "center"}}>
+                        <h1 style={{fontWeight: "800", fontSize: "36px", lineHeight: "42px"}}>Pinhole Calculator</h1>
+                    </div>
+                    <InputSection handleInputChange={handleInputChange} inputs={state.inputs} handleUnitToggle={handleUnitToggle}/>
+                    <div style={{width: "335px", height: "4px", background: "#D9D9D9"}}></div>
+                    <h3 style={{marginTop: "24px", fontSize: "20px", fontWeight: "700", lineHeight: "23px"}}>Results</h3>
+                    <ResultsMiniSection fStop={state.results.fStop} angleOfView={state.results.angleOfView}/>
+                    <ResultsSection results={state.results} handleUnitToggle={handleUnitToggle}/>
+                </Container>
             </div>
-            <InputSection handleInputChange={handleInputChange} inputs={state.inputs} handleUnitToggle={handleUnitToggle}/>
-            <div style={{width: "335px", height: "4px", background: "#D9D9D9"}}></div>
-            <h3 style={{marginTop: "24px", fontSize: "20px", fontWeight: "700", lineHeight: "23px"}}>Results</h3>
-            <ResultsMiniSection fStop={state.results.fStop} angleOfView={state.results.angleOfView}/>
-            <ResultsSection results={state.results} handleUnitToggle={handleUnitToggle}/>
-        </Container>
     </main>
     )
 }   

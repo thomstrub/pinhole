@@ -13,13 +13,15 @@ return(
             <label style={labelStyles} htmlFor={name.variable}>{name.readibleName}</label>
         </Row>
         <Row style={{marginTop: "4px"}}>
+        <div style={{display: "flex", width:"100%", margin: "0 auto",justifyContent: "space-between"}}> 
             <Col xs={5}>
-            <input style={inputsStyles} input type="number" pattern="[0-9]*" inputmode="numeric" id={name.variable} onChange={handleInputChange} value={value[value.unit]}></input>
+                <input style={inputsStyles} input type="number" pattern="[0-9]*" inputmode="numeric" id={name.variable} onChange={handleInputChange} value={value[value.unit]}></input>
             </Col>
-            <Col></Col>
+            
             <Col xs={5}>
-            <ToggleContainer unit={value.unit} handleUnitToggle={handleUnitToggle} type={"inputs"} label={name.variable}/>
+                <ToggleContainer unit={value.unit} handleUnitToggle={handleUnitToggle} type={"inputs"} label={name.variable}/>
             </Col>
+        </div>
         </Row>
     </Col>
     </Row>       
