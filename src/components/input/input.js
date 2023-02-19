@@ -14,7 +14,7 @@ return(
         </Row>
         <Row style={{marginTop: "4px"}}>
             <Col xs={5}>
-            <input style={inputsStyles} type="decimal" id={name.variable} onChange={handleInputChange} value={value[value.unit]}></input>
+            <input style={inputsStyles} input type="number" pattern="[0-9]*" inputmode="numeric" id={name.variable} onChange={handleInputChange} value={value[value.unit]}></input>
             </Col>
             <Col></Col>
             <Col xs={5}>
