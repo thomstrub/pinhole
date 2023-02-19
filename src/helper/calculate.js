@@ -32,7 +32,7 @@ export default function calculateResults(state){
 
     //calculate optimal focal length in mm
     function calculateOptimalFocalLengthFromMm(diameter){
-        const calculateOptimalFocalLengthFromMm = Math.pow(Number(diameter[millimeters]), 2) / .00007;
+        const calculateOptimalFocalLengthFromMm = Math.pow((Number(diameter[millimeters])/ .03679), 2);
         return calculateOptimalFocalLengthFromMm.toFixed(2)
     }
 
