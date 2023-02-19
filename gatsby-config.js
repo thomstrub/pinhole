@@ -15,11 +15,7 @@ module.exports = {
         web: [
           {
             name: `Karla`,
-            file: `https://fonts.googleapis.com/css?family=Karla`,
-          },
-          {
-            name: `Karla`,
-            file: `https://fonts.googleapis.com/css2?family=Karla:wght@800&display=swap`,
+            file: `https://fonts.googleapis.com/css2?family=Karla:wght@600;700;800&display=swap`,
           },
           {
             name: `Open Sans`,

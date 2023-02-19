@@ -120,11 +120,11 @@ const inches = constants.units.inches.variable;
     <main>
         <Container fluid>
             <div style={{marginTop: "40px", display: "flex", alignSelf: "center", justifyContent: "center"}}>
-                <h1 style={{fontWeight: "800px", fontStyle: "bold", fontSize: "36px", lineHeight: "42px"}}>Pinhole Calculator</h1>
+                <h1 style={{fontWeight: "800", fontSize: "36px", lineHeight: "42px"}}>Pinhole Calculator</h1>
             </div>
             <InputSection handleInputChange={handleInputChange} inputs={state.inputs} handleUnitToggle={handleUnitToggle}/>
             <div style={{width: "335px", height: "4px", background: "#D9D9D9"}}></div>
-            <h3 style={{marginTop: "24px", fontWeight: "700", fontSize: "20px", lineHeight: "23px"}}>Results</h3>
+            <h3 style={{marginTop: "24px", fontSize: "20px", fontWeight: "700", lineHeight: "23px"}}>Results</h3>
             <ResultsMiniSection fStop={state.results.fStop} angleOfView={state.results.angleOfView}/>
             <ResultsSection results={state.results} handleUnitToggle={handleUnitToggle}/>
         </Container>
