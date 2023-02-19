@@ -1,32 +1,21 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
 import ToggleContainer from "../../toggles/toggleContainer";
+import { resultsStyles, labelStyles } from "../../../styles/inputAndResultsStyles";
+
 export default function Result({name, result, handleUnitToggle}){
     const resultInUnit = result[result.unit]
-    const resultStyles = {
-        color: "gray",
-        fontFamily: "Karla",
-        fontSize: "32px",
-        border: "1px solid #cccccc",
-        borderRadius: "6px",
-        height: "60px",
-        width: "195px",
-        boxSizing: "border-box",
-        marginBottom:"24px",
-        display: "flex",
-        alignItems: "flex-start"
-
-    }
+    
     return(
         <>
-        <Row style={{marginTop:"12px", marginBottom: "12px"}}>
+        <Row style={{marginTop:"12px"}}>
             <Col>
         <Row>
-            <label htmlFor={name.variable}>{name.readibleName}</label>
+            <label style={labelStyles} htmlFor={name.variable}>{name.readibleName}</label>
         </Row>
         <Row>
             <Col xs={5}>
-            <input style={resultStyles} id={name.variable} value={resultInUnit ? resultInUnit : ''} readOnly={true}></input>
+            <input style={resultsStyles} id={name.variable} value={resultInUnit ? resultInUnit : ''} readOnly={true}></input>
             </Col>
             <Col></Col>
             <Col xs={5}>
