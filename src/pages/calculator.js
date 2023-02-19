@@ -19,7 +19,7 @@ const inches = constants.units.inches.variable;
             focalLength: {
                 inches: '',
                 millimeters: '',
-                unit: constants.units.millimeters.variable
+                unit: constants.units.inches.variable
             },
             diameter: {
                 inches: '',
@@ -29,7 +29,7 @@ const inches = constants.units.inches.variable;
             filmDimension: {
                 inches: '',
                 millimeters: '',
-                unit: constants.units.millimeters.variable
+                unit: constants.units.inches.variable
             },
         },
         results: {
@@ -38,7 +38,7 @@ const inches = constants.units.inches.variable;
             imageDiameter: {
                 inches: '',
                 millimeters: '',
-                unit: constants.units.millimeters.variable
+                unit: constants.units.inches.variable
             },
             optimalPinholeDiameter: {
                 inches: '',
@@ -48,7 +48,7 @@ const inches = constants.units.inches.variable;
             optimalFocalLength: {
                 inches: '',
                 millimeters: '',
-                unit: constants.units.millimeters.variable
+                unit: constants.units.inches.variable
             }
         }
         
