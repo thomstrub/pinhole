@@ -5,6 +5,7 @@ import constants from "../../constants/constants";
 export default function ToggleContainer({unit, handleUnitToggle, type, label}){
     
     const toggleContainerStyles = {
+     border: "1px solid #cccccc",
      display: "flex",
      flexDirection: "row",
      justifyContent: "flex-end"
