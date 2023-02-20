@@ -5,12 +5,13 @@ import constants from "../../constants/constants";
 export default function ToggleContainer({unit, handleUnitToggle, type, label}){
     
     const toggleContainerStyles = {
-     border: "1px solid #cccccc",
+     width: "120px",
+     height: "60px",
      display: "flex",
-     flexDirection: "row",
-     justifyContent: "flex-end"
+     flexDirection: "row"
     }
     const notSelectedColorStyles = {
+        border: "1px solid #cccccc",
         background: "#F2F3F5",
         color: "#BCBCBC"
     }
