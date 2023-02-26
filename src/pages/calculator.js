@@ -60,6 +60,8 @@ const inches = constants.units.inches.variable;
         e.preventDefault();
         const id = e.target.id;
         const value = e.target.value < 0 ? '' : e.target.value;
+        const valueInInches = value * constants.units.inches.multiplierFromMillimeters;
+        const valueInMillimeters = value * constants.units.millimeters.multiplierFromInches;
 
         if(state.inputs[id].unit === constants.units.millimeters.variable){
             setState({
@@ -68,7 +70,7 @@ const inches = constants.units.inches.variable;
                     ...state.inputs,
                     [id]: {
                         [constants.units.millimeters.variable] : value,
-                        [constants.units.inches.variable] : value * constants.units.inches.multiplierFromMillimeters % 1 > 0 ? (value * constants.units.inches.multiplierFromMillimeters).toFixed(2): value * constants.units.inches.multiplierFromMillimeters,
+                        [constants.units.inches.variable] : valueInInches % 1 > 0 ? (valueInInches).toFixed(2): valueInInches,
                         unit : state.inputs[id].unit
                     }
                 }
@@ -79,7 +81,7 @@ const inches = constants.units.inches.variable;
                 inputs: {
                     ...state.inputs,
                     [id]: {
-                        [constants.units.millimeters.variable] : value * constants.units.millimeters.multiplierFromInches % 1 > 0 ? (value * constants.units.millimeters.multiplierFromInches).toFixed(2) : value * constants.units.millimeters.multiplierFromInches,
+                        [constants.units.millimeters.variable] : valueInMillimeters % 1 > 0 ? (valueInMillimeters).toFixed(2) : valueInMillimeters,
                         [constants.units.inches.variable] : value,
                         unit : state.inputs[id].unit 
                     }
@@ -124,8 +126,8 @@ const inches = constants.units.inches.variable;
                         <h1 style={{fontWeight: "800", fontSize: "36px", lineHeight: "42px"}}>Pinhole Calculator</h1>
                     </div>
                     <InputSection handleInputChange={handleInputChange} inputs={state.inputs} handleUnitToggle={handleUnitToggle}/>
-                    <div style={{width: "100%", height: "4px", background: "#D9D9D9"}}></div>
-                    <h3 style={{marginTop: "24px", fontSize: "20px", fontWeight: "700", lineHeight: "23px"}}>Results</h3>
+                    {/* <div style={{width: "100%", height: "4px", background: "#D9D9D9"}}></div>
+                    <h3 style={{marginTop: "24px", fontSize: "20px", fontWeight: "700", lineHeight: "23px"}}>Results</h3> */}
                     <ResultsMiniSection fStop={state.results.fStop} angleOfView={state.results.angleOfView}/>
                     <ResultsSection results={state.results} handleUnitToggle={handleUnitToggle}/>
                 </Container>

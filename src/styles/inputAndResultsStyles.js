@@ -5,7 +5,7 @@ const basicBoxStyles = {
     border: "1px solid #cccccc",
     borderRadius: "6px",
     boxSizing: "border-box",
-    marginBottom:"24px",
+    marginBottom:"14px",
     paddingLeft:"12px",
     display: "flex",
     alignItems: "center"
@@ -35,4 +35,6 @@ const labelStyles = {
     lineHeight: "20px"
 }
 
-export {inputsStyles, resultsStyles, resultsMiniStyles, labelStyles}
+const rowStyles = {marginTop:"12px"}
+
+export {inputsStyles, resultsStyles, resultsMiniStyles, labelStyles, rowStyles}

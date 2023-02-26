@@ -42,7 +42,7 @@ function handleTabletChange(e) {
 }
   return (
     <main style={pageStyles}>
-      {isDesktop ? <h1>Calculator</h1>: <Calculator/>}
+      {isDesktop ? <Calculator/>: <Calculator/>}
     </main>
   )
 }

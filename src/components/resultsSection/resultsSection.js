@@ -10,8 +10,8 @@ export default function ResultsSection({results, handleUnitToggle}){
 return(
     <>
         <Result name={constants.results.imageDiameter} result={imageDiameter ? imageDiameter : ''} handleUnitToggle={handleUnitToggle}/>
-        <Result name={constants.results.optimalPinholeDiameter} result={optimalPinholeDiameter ? optimalPinholeDiameter : ''} handleUnitToggle={handleUnitToggle}/>
-        <Result name={constants.results.optimalFocalLength} result={optimalFocalLength ? optimalFocalLength : ''} handleUnitToggle={handleUnitToggle}/>
+        {/* <Result name={constants.results.optimalPinholeDiameter} result={optimalPinholeDiameter ? optimalPinholeDiameter : ''} handleUnitToggle={handleUnitToggle}/>
+        <Result name={constants.results.optimalFocalLength} result={optimalFocalLength ? optimalFocalLength : ''} handleUnitToggle={handleUnitToggle}/> */}
     </>
 )
 }

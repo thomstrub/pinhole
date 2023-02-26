@@ -12,7 +12,7 @@ export default function ResultsMiniSection({fStop, angleOfView}){
 
     return(
        
-        <Row style={{marginTop:"12px"}}>
+        <Row>
                 <div style={{display:"flex", flexDirection: "row", justifyContent: "space-between"}}>
                     <div>
                         <ResultsMini name={constants.results.fstop} result={fStop ? fStop : ''}/>

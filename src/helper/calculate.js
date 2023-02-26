@@ -15,10 +15,10 @@ export default function calculateResults(state){
 
     // calculate angle of view
     function calculateAngleOfViewFromMm(filmDimension, focalLength){
-        const filmDimensionByFocalLength = Number(filmDimension[millimeters])/2 * Number(focalLength[millimeters])
+        const filmDimensionByFocalLength = Number(filmDimension[millimeters])/(2 * Number(focalLength[millimeters]))
         const angleOfViewInRadians = 2 * Math.atan(filmDimensionByFocalLength)
         const angleOfViewInDegrees = angleOfViewInRadians * 180 / Math.PI
-        return angleOfViewInDegrees ? angleOfViewInDegrees.toFixed(2) + "°" : ''
+        return angleOfViewInDegrees ? angleOfViewInDegrees.toFixed(0) + "°" : ''
     }
 
     //calculate image diameter in mm

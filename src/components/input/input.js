@@ -1,13 +1,13 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
 import ToggleContainer from "../toggles/toggleContainer";
-import { inputsStyles, labelStyles } from "../../styles/inputAndResultsStyles";
+import { inputsStyles, labelStyles, rowStyles } from "../../styles/inputAndResultsStyles";
 
 export default function Input({name, handleInputChange, value, handleUnitToggle}){
 
 return(
     
-    <Row style={{marginTop:"12px"}}>
+    <Row style={rowStyles}>
     <Col>
         <Row style={{marginBottom: "4px"}}>
             <label style={labelStyles} htmlFor={name.variable}>{name.readibleName}</label>
